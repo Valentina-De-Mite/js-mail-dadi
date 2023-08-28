@@ -41,3 +41,39 @@ Chiedi all'utente la sua email, controlla che sia nella lista di chi può accede
 Bonus
 Usiamo un input e un bottone per inserire la mail e poi mostriamo i risultati in pagina.
 */
+
+// chiedere all'utente la sua mail
+const mailList = [
+  "pincopallo@gmail.com",
+  "pancopinco@gmail.com",
+  "brucaliffo@gmail.com",
+  "cip@gmail.com",
+  "ciop@gmail.com",
+];
+
+console.log(mailList);
+
+let mail = document.getElementById("e-mail");
+var messaggio = "";
+
+console.log();
+document.getElementById("invia").addEventListener("click", function () {
+  for (let i = 0; i < mailList.length; i++) {
+    const element = mailList[i];
+    // controllare che la mail sia nella lista
+    if (mail.value === element) {
+      messaggio = "Ok! La tua mail e' registrata";
+      console.log(messaggio);
+    }
+  }
+
+  if (messaggio === "") {
+    messaggio = "La tua mail non e' registrata.";
+    console.log(messaggio);
+  }
+
+  // stampare il messaggio
+
+  let mail_ok = document.getElementById("mail_ok");
+  mail_ok.innerHTML = messaggio;
+});
